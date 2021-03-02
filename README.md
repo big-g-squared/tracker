@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# The tracker project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The tracker project is meant to be a solution to the problem of forgetful learning.
 
-## Available Scripts
+## Problem Statement
 
-In the project directory, you can run:
+As a Berkeley student, I'm constantly having to choose what work merits priority and when I should study it. Usually my process involves creating a mental relational map of the concepts that I still don't know, don't understand, or haven't reviewed in quite some time (and the former doesn't happen until usually close to midterm season). This method is awful because usually I'll forget the connections that I've made given that my attention span is rather limited. Why not write this all down in a notebook, then? This is tedious and it does not play to the habit forming framework mentioned in James Clear's _Atomic Habits_: 
+ 
+1. Make it Obvious
+2. Make it Attractive
+3. Make it Easy
+4. Make it Satisfying
 
-### `yarn start`
+Studying itself is affected by this, since having to make a choice as to what you're going to study next based on the rough idea of what you do/don't understand violates the first principle (it should be obvious what you need to study next) and the third principle (rummaging around that old noggin of yours trying to gauge your EXTREMELY relative level of understanding is daunting and quite often inaccurate). This adds to the stress of studying which violates the second principle (because what's more attractive than more stress???!?!?!) and leaves you wondering after every study session whether you are studying enough/if you're studying the right things, which violates the fourth principle.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is meant to address these issues.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Method
 
-### `yarn test`
+The method I plan on using plays on the following principles of effective learning: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Knowing the difference between _focused_ studying and _diffuse_ mode of the brain.
+2. Focusing on the _recall_ of information from some particular class.
+3. _Spacing recall_ sessions using increasing time intervals between sessions.
+4. Employing the _pomodoro technique_ to make engagement frictionless.
+5. _Collaborative learning_ by emphasizing office hours and peer-to-peer collaboration
 
-### `yarn build`
+### Organization method
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The software assumes a particular organizational method: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* The student organizes their work into _units_. For example, one unit is reading a set of pages in a textbook or completing a homework assignment.
+* A _module_ organizes the units into related sets. For example, if you need to do a reading before attempting a homework, these two units would belong in the same module.
+* A unit usually has a method of tracking information attached to it. For example, you might have notes relating to unit 1 of module 3, which was a reading unit. You also might have flashcards for unit 3 of module 3, which is the homework that you're trying to memorize the solutions to.
+* A unit will have a difficuly rating. The student will rate the unit according to the difficulty they had understanding it the last time they tried studying it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Program Goals
 
-### `yarn eject`
+The goals for this software are as follows:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Prioritize units based on perceived difficulty/understanding level
+2. Schedule sessions of recall to establish good context.
+3. Leverage diffuse-mode thinking by making students memorize fine details.
+4. Leverage office hours by scheduling study sessions appropriately to give students the proper context to jump into office hours with the right conceptual tools.
+5. Schedule spaced sessions of recall to establish knowledge of problem-solving methods _before_ exam season begins.
+6. Leverage matchmaking capabilities to pair students with the optimal study partner to increase _engagement_ rather than just understanding.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The tech I plan to use includes, but is not limited to: 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. React: Good for web development, should also be easier to transition into mobile development if the need arises.
+2. GraphQL: Excellent for rapid prototyping and for connecting disparate services under a single API.
+3. Apollo & Prisma: I fell in love with Prisma when I did the [howtographql](https://www.howtographql.com) tutorial which has me build a hackernews clone frontend and backend.
+4. CvxPy: Good for optimization models and convex programming.
+5. Flutter: Good for rapid prototying on mobile. Maybe might use for initial deployments if I get lazy enough.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Thank you for reading!
