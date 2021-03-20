@@ -1,0 +1,38 @@
+type Query {
+    classes(skip: Int, take: Int): [Class!]!
+    class(id: String, name: String): Class!
+}
+
+type Mutation {
+    newClass(name: String!, lecture: DateRange!, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
+    modifyClass(id: String!, name: String!, lecture: DateRange!, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
+    addModule(classId: String!, name: String!, units: [Unit], weekOf: DateRange): Module!
+    addUnit(moduleId: String!, name: String!, description: String, type: String!): Unit!
+}
+
+type Class {
+    id: String!
+    name: String!
+    lecture: DateRange!
+    discussion: DateRange
+    lab: DateRange
+    officeHours: DateRange!
+    modules: [Module!]!
+}
+
+type DateRange {
+    start: String!
+    end: String!
+}
+
+type Module {
+    name: String!
+    units: [Unit!]!
+    weekOf: DateRange
+}
+
+type Unit {
+    name: String!
+    description: String
+    type: String!
+}

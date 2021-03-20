@@ -19,4 +19,4 @@ const Unit = (props) => {
     )
 }
 
-export default Unit
+export default Unit;

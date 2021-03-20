@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Class {
+  id          Int         @id @default(autoincrement())
+  name        String      
+  lecture     String
+  discussion  String?
+  lab         String?
+  officeHours String
+  modules     Module[]
+
+  @@unique([name])
+}
+
+model Module {
+  id          Int         @id @default(autoincrement())
+  name        String
+  class       Class       @relation(fields:[classId], references: [id])
+  classId     Int
+  weekOf      String
+  units       Unit[]
+
+  @@unique([classId])
+}
+
+model Unit {
+  id          Int         @id @default(autoincrement())
+  name        String
+  module      Module      @relation(fields:[moduleId], references: [id])
+  moduleId    Int
+  description String
+  type        String
+
+  @@unique([moduleId])
+}
