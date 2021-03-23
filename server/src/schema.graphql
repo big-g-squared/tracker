@@ -1,6 +1,6 @@
 type Query {
     classes(skip: Int, take: Int): [Class!]!
-    class(id: String, name: String): Class!
+    singleClass(id: String, name: String): Class!
 }
 
 type Mutation {
