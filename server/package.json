@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^2.19.0",
-    "apollo-server": "^2.21.2"
+    "apollo-server": "^2.21.2",
+    "luxon": "^1.26.0"
   },
   "devDependencies": {
     "prisma": "^2.19.0"
