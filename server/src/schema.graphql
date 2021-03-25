@@ -5,13 +5,18 @@ type Query {
 
 type Mutation {
     newClass(name: String!, lecture: DateRange!, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
-    modifyClass(id: String!, name: String!, lecture: DateRange!, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
+    modifyClass(id: Int!, name: String, lecture: DateRange, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
+    deleteClass(id: Int!)
     addModule(classId: String!, name: String!, units: [Unit], weekOf: DateRange): Module!
-    addUnit(moduleId: String!, name: String!, description: String, type: String!): Unit!
+    editModule(id: Int!, name: String, units: [Unit], weekOf: DateRange): Module!
+    deleteModule(id: Int!)
+    addUnit(id: Int!, name: String!, description: String, type: String): Unit!
+    editUnit(id: Int!, name: String, description: String, type: String)
+    deleteUnit(id: Int!)
 }
 
 type Class {
-    id: String!
+    id: Int!
     name: String!
     lecture: DateRange!
     discussion: DateRange
@@ -26,12 +31,14 @@ type DateRange {
 }
 
 type Module {
+    id: Int!
     name: String!
     units: [Unit!]!
     weekOf: DateRange
 }
 
 type Unit {
+    id: Int!
     name: String!
     description: String
     type: String!
