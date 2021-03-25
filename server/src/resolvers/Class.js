@@ -25,3 +25,11 @@ async function modules(parent, args, context) {
         }
     })
 }
+
+module.exports = {
+    lecture,
+    discussion,
+    lab,
+    officeHours,
+    modules
+}

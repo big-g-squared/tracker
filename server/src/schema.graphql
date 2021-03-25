@@ -4,8 +4,8 @@ type Query {
 }
 
 type Mutation {
-    newClass(name: String!, lecture: DateRange!, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
-    modifyClass(id: Int!, name: String, lecture: DateRange, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
+    addClass(name: String!, lecture: DateRange!, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
+    editClass(id: Int!, name: String, lecture: DateRange, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
     deleteClass(id: Int!)
     addModule(classId: String!, name: String!, units: [Unit], weekOf: DateRange): Module!
     editModule(id: Int!, name: String, units: [Unit], weekOf: DateRange): Module!

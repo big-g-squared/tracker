@@ -26,4 +26,5 @@ async function singleClass(parent, args, context, info) {
 
 module.exports = {
     classes,
+    singleClass
 }

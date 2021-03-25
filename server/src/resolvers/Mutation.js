@@ -1,8 +1,9 @@
 const { argsToArgsConfig } = require('graphql/type/definition');
 const { DateTime, Interval} = require('luxon');
 const { rangeToString, stringToRange } = require('../daterange');
+const { modules } = require('./Class');
 
-function newClass(parent, args, context) {
+function addClass(parent, args, context) {
     const created = context.prisma.class.create({
         name: args.name,
         lecture: rangeToString(args.lecture),
@@ -14,7 +15,7 @@ function newClass(parent, args, context) {
     return created;
 }
 
-async function modifyClass(parent, args, context) {
+async function editClass(parent, args, context) {
     return await context.prisma.class.update({
         where: {
             id: args.id
@@ -144,4 +145,16 @@ async function deleteUnit(parent, args, context) {
             }
         }
     })
+}
+
+module.exports ={
+    addClass,
+    editClass,
+    deleteClass,
+    addModule,
+    editModule,
+    deleteModule,
+    addUnit,
+    editUnit,
+    deleteUnit,
 }

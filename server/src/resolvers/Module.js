@@ -13,3 +13,8 @@ async function units(parent, args, context) {
         }
     }) 
 }
+
+module.exports = {
+    weekOf,
+    units
+}
