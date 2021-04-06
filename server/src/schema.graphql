@@ -1,18 +1,18 @@
 type Query {
     classes(skip: Int, take: Int): [Class!]!
-    singleClass(id: String, name: String): Class!
+    singleClass(id: Int, name: String): Class!
 }
 
 type Mutation {
     addClass(name: String!, lecture: DateRange!, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
     editClass(id: Int!, name: String, lecture: DateRange, discussion: DateRange, lab: DateRange, officeHours: DateRange): Class!
-    deleteClass(id: Int!)
+    deleteClass(id: Int!): Class!
     addModule(classId: String!, name: String!, units: [Unit], weekOf: DateRange): Module!
     editModule(id: Int!, name: String, units: [Unit], weekOf: DateRange): Module!
-    deleteModule(id: Int!)
+    deleteModule(id: Int!): Module!
     addUnit(id: Int!, name: String!, description: String, type: String): Unit!
-    editUnit(id: Int!, name: String, description: String, type: String)
-    deleteUnit(id: Int!)
+    editUnit(id: Int!, name: String, description: String, type: String): Unit!
+    deleteUnit(id: Int!): Unit!
 }
 
 type Class {
@@ -23,6 +23,7 @@ type Class {
     lab: DateRange
     officeHours: DateRange!
     modules: [Module!]!
+    schedule: Schedule!
 }
 
 type DateRange {
@@ -42,4 +43,8 @@ type Unit {
     name: String!
     description: String
     type: String!
+}
+
+type Schedule {
+
 }

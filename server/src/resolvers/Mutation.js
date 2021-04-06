@@ -1,7 +1,4 @@
-const { argsToArgsConfig } = require('graphql/type/definition');
-const { DateTime, Interval} = require('luxon');
 const { rangeToString, stringToRange } = require('../daterange');
-const { modules } = require('./Class');
 
 function addClass(parent, args, context) {
     const created = context.prisma.class.create({
