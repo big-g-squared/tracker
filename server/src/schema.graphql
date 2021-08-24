@@ -13,6 +13,7 @@ type Mutation {
     addUnit(id: Int!, name: String!, description: String, type: String): Unit!
     editUnit(id: Int!, name: String, description: String, type: String): Unit!
     deleteUnit(id: Int!): Unit!
+    uploadSchedule(data: String!): Schedule!
 }
 
 type Class {
@@ -46,5 +47,11 @@ type Unit {
 }
 
 type Schedule {
+    scheduleItems: [ScheduleItem!]!
+}
 
+type ScheduleItem {
+    id: Int!
+    unit: Unit!
+    time: DateRange!
 }

@@ -40,6 +40,15 @@ model Unit {
   moduleId    Int
   description String
   type        String
+  schedules   Schedule[]
 
   @@unique([moduleId])
+}
+
+model Schedule {
+  id          Int         @id @default(autoincrement())
+  unit        Unit        @relation(fields:[unitId], references: [id])
+  unitId      Int
+
+  @@unique([unitId])
 }

@@ -1,4 +1,8 @@
 const { rangeToString, stringToRange } = require('../daterange');
+const papa = require('papaparse');
+const { Readable } = require("stream");
+const { recompute } = require('../compute');
+
 
 function addClass(parent, args, context) {
     const created = context.prisma.class.create({
@@ -20,7 +24,7 @@ async function editClass(parent, args, context) {
         data: {
             name: args.name,
             lecture: rangeToString(args.lecture),
-            discussion: rangeToString(arsgs.discussion),
+            discussion: rangeToString(args.discussion),
             lab: rangeToString(args.lab),
             officeHours: rangeToString(args.officeHours),
             modules: {
@@ -144,7 +148,27 @@ async function deleteUnit(parent, args, context) {
     })
 }
 
-module.exports ={
+async function uploadSchedule(data) {
+    // TODO: Handle how to add data using CSV capabilities
+    const { Readable } = require("stream");
+    const readable = Readable.from(data);
+    papa.parse(readable, {
+        step: (row) => {
+            /* TODO:  Finish handling row addition */
+            context.prisma.class.create({
+                name: row.name,
+                lecture: rangeToString(row.lecture),
+                discussion: rangeToString(row.discussion),
+                lab: rangeToString(row.lab),
+                officeHours: rangeToString(row.officeHours)
+            });
+        }
+    });
+
+    recompute();
+}
+
+module.exports = {
     addClass,
     editClass,
     deleteClass,
@@ -154,4 +178,5 @@ module.exports ={
     addUnit,
     editUnit,
     deleteUnit,
+    uploadSchedule
 }

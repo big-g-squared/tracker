@@ -38,11 +38,16 @@ const Class = (props) => {
         ]
     })
     return (
-        <ul>
-            {formState.modules.map((module) => (
-                <Module moduleInfo={module} />
-            ))}
-        </ul>
+        <div class="single-class">
+            <div class="buttons ph3">
+                <a class="f6 link dim br1 ph3 pv2 mb2 dib white bg-black" href="#0">Add Module</a>
+            </div>
+            <ul>
+                {formState.modules.map((module) => (
+                    <Module moduleInfo={module} />
+                ))}
+            </ul>
+        </div>
     )
 }
 
